@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 映射文件，映射到对应的SQL接口 -->
+<mapper namespace="com.demo.springbootdemo.mappper.UserMapper">
+
+    <!--返回的结果集，用于关联实体类属性和数据库字段 -->
+    <!--如果实体类属性和数据库属性名保持一致，就不需要javaType和jdbcType（必须大写）属性 -->
+    <resultMap id="BaseResultMap" type="com.demo.springbootdemo.beans.User">
+        <result column="ID" property="ID" javaType="java.lang.Integer" jdbcType="INTEGER" />
+        <result column="USER_NAME" property="USER_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="USER_PASSWORD" property="USER_PASSWORD" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="NIKE_NAME" property="NIKE_NAME" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="STATUS" property="STATUS" javaType="java.util.Integer" jdbcType="VARCHAR"/>
+        <result column="EMAIL" property="EMAIL" javaType="java.lang.String" jdbcType="VARCHAR" />
+        <result column="PASSWORD_END_DATE" property="PASSWORD_END_DATE" javaType="java.sql.Date" jdbcType="Date" />
+        <result column="USER_START_DATE" property="USER_START_DATE" javaType="java.sql.Date" jdbcType="Date" />
+        <result column="USER_END_DATE" property="USER_END_DATE" javaType="java.sql.Date" jdbcType="Date" />
+        <result column="IPS" property="IPS" javaType="java.sql.String" jdbcType="VARCHAR" />
+        <result column="ORG_ID" property="ORG_ID" javaType="java.sql.Integer" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <!-- 查询数据 -->
+    <select id="queryAll" resultMap="BaseResultMap">
+        select * from base_user
+    </select>
+
+</mapper>
